@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "app.jdbcurl",
+      "type": "java.lang.String",
+      "description": "Description for app.jdbcurl."
+  }
+] }
