@@ -13,6 +13,7 @@
 </head>
 <body>
 <a href="/autor/list">Autores</a>
+<a href="/libro/list">Libros</a>
 
 </body>
 </html>

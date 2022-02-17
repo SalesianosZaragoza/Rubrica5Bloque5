@@ -15,7 +15,7 @@ public class LibroService implements DataBaseService<Libro>{
 
 	@Override
 	public void insert(Libro libro) {
-
+		repo.insert(libro);
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class LibroService implements DataBaseService<Libro>{
 	}
   @Override
 	public List<Libro> findAll() {
-		return null;
+		return repo.findAll();
 	}
 
 	public List<Libro> findByIsbn(String isbn) {
@@ -35,5 +35,9 @@ public class LibroService implements DataBaseService<Libro>{
 	public List<Libro> findByAutor(String nombreAutor) {
 
 		return repo.getLibrosAutor(nombreAutor);
+	}
+
+	public List<Libro> findByTitulo(String titulo) {
+		return repo.getLibroByTitulo(titulo);
 	}
 }
