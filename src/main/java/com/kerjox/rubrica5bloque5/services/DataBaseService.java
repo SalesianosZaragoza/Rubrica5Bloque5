@@ -1,7 +1,10 @@
 package com.kerjox.rubrica5bloque5.services;
 
-public interface DataBaseService {
+import java.util.List;
 
-	void insert();
-	void delete();
+public interface DataBaseService<T> {
+
+	List<T> findAll();
+	void insert(T t);
+	void delete(Integer id);
 }

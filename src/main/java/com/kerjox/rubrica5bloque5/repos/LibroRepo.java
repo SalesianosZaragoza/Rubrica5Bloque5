@@ -5,11 +5,13 @@ import com.kerjox.rubrica5bloque5.entities.Autor;
 import com.kerjox.rubrica5bloque5.entities.Libro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class LibroRepo implements RepoService<Libro> {
 
 	@Autowired
@@ -38,13 +40,13 @@ public class LibroRepo implements RepoService<Libro> {
 	}
 
 	@Override
-	public void delete(Libro libro) {
+	public void delete(int id) {
 
 		Connection conn = manager.open(jdbcurl);
 		PreparedStatement statement = null;
 		try {
 			statement = conn.prepareStatement("DELETE FROM Libros WHERE ID = ?");
-			statement.setInt(1, libro.getID());
+			statement.setInt(1, id);
 			statement.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -69,6 +71,37 @@ public class LibroRepo implements RepoService<Libro> {
 			while (rs.next()) {
 
 				Libro libro = new Libro();
+				libro.setID(rs.getInt("ID"));
+				libro.setTitulo(rs.getString("titulo"));
+				libro.setIsbn(rs.getString("isbn"));
+
+				libros.add(libro);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			manager.close(statement);
+			manager.close(conn);
+		}
+
+		return libros;
+	}
+
+	public List<Libro> getLibrosAutor(String nombreAutor) {
+
+		List<Libro> libros = new ArrayList<>();
+
+		Connection conn = manager.open(jdbcurl);
+		PreparedStatement statement = null;
+		try {
+			statement = conn.prepareStatement("SELECT l.ID, l.titulo, l.isbn FROM Libros l INNER JOIN AUTORES A on l.AUTORID = A.ID WHERE A.NOMBRE = ?");
+
+			statement.setString(1, nombreAutor);
+			ResultSet rs = statement.executeQuery();
+
+			while (rs.next()) {
+
+				Libro libro = new Libro();
 				libro.setID(rs.findColumn("ID"));
 				libro.setTitulo(rs.getString("titulo"));
 				libro.setIsbn(rs.getString("isbn"));
@@ -85,16 +118,16 @@ public class LibroRepo implements RepoService<Libro> {
 		return libros;
 	}
 
-	public List<Libro> getLibrosAutor(int autorID) {
+	public List<Libro> getLibroByIsbn(String isbn) {
 
 		List<Libro> libros = new ArrayList<>();
 
 		Connection conn = manager.open(jdbcurl);
 		PreparedStatement statement = null;
 		try {
-			statement = conn.prepareStatement("SELECT l.ID, l.titulo, l.isbn FROM Libros l, WHERE l.ID = ?");
+			statement = conn.prepareStatement("SELECT l.ID, l.titulo, l.isbn FROM Libros l, WHERE l.isbn = ?");
 
-			statement.setInt(1, autorID);
+			statement.setString(1, isbn);
 			ResultSet rs = statement.executeQuery();
 
 			while (rs.next()) {

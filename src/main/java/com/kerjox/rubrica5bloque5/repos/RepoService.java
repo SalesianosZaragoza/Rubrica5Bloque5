@@ -5,6 +5,6 @@ import java.util.List;
 public interface RepoService<T> {
 
 	void insert(T t);
-	void delete(T t);
+	void delete(int id);
 	List<T> findAll();
 }
