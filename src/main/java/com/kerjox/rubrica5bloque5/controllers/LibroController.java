@@ -18,7 +18,6 @@ import java.util.Objects;
 public class LibroController {
 
 	@Autowired
-	//@Qualifier("libroService")
 	private LibroService service;
 
 	@Autowired
@@ -60,7 +59,7 @@ public class LibroController {
 	}
 
 	@PostMapping("libro/find")
-	public ModelAndView find(@RequestParam("titulo") String titulo, @RequestParam("isbn") String isbn,@RequestParam("nombreAutor") String nombreAutor) {
+	public ModelAndView find(@RequestParam("titulo") String titulo, @RequestParam("isbn") String isbn, @RequestParam("nombreAutor") String nombreAutor) {
 
 		List<Libro> libros = service.findAll();
 

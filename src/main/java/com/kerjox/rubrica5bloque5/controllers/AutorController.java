@@ -1,8 +1,7 @@
 package com.kerjox.rubrica5bloque5.controllers;
 
 import com.kerjox.rubrica5bloque5.entities.Autor;
-import com.kerjox.rubrica5bloque5.repos.AutoresRepo;
-import com.kerjox.rubrica5bloque5.services.DataBaseService;
+import com.kerjox.rubrica5bloque5.services.AutoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,8 +18,7 @@ import java.util.Objects;
 public class AutorController {
 
 	@Autowired
-	//@Qualifier("autoresService")
-	private AutoresRepo service;
+	private AutoresService service;
 
 	@GetMapping("/autor/list")
 	public ModelAndView list() {
@@ -46,7 +44,7 @@ public class AutorController {
 	}
 
 	@PostMapping("/autor/find")
-	public ModelAndView find(@RequestParam(value = "nombre" ,required = false) String nombre, @RequestParam(value = "fNac", required = false) String fNac) {
+	public ModelAndView find(@RequestParam(value = "nombre", required = false) String nombre, @RequestParam(value = "fNac", required = false) String fNac) {
 
 		List<Autor> autores = service.findAll();
 
