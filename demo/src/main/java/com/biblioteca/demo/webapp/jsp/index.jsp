@@ -23,6 +23,25 @@
 <a href="buscarAutor">Buscar Autor</a>
 <br>
 
+<h1>Lista de libros</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Titulo</th>
+		<th>Autor</th>
+		<th>ISBN</th>
+		<th>Eliminar</th>
+	</tr>
+	<c:forEach items="${listaLibros}" var="libro">
+		<tr>
+			<td>${libro.titulo}</td>
+			<td>${libro.autor.nombre}</td>
+			<td>${libro.isbn}</td>
+			<td><a href="eliminarLibro?id=${libro.id}">Eliminar</a></td>
+		</tr>
+	</c:forEach>
+</table>
+
 
 
 </body>
