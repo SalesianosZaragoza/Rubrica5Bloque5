@@ -12,7 +12,6 @@ public class DemoApplication {
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(DemoApplication.class);
 	}
-
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(DemoApplication.class, args);
 	}
