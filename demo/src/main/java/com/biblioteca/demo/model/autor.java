@@ -1,6 +1,8 @@
 package com.biblioteca.demo.model;
 
+import org.springframework.stereotype.Component;
 
+@Component
 public class autor {
     private int id;
     private String nombre;

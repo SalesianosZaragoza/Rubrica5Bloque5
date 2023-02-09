@@ -1,5 +1,8 @@
 package com.biblioteca.demo.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class libro {
 
     private int id;

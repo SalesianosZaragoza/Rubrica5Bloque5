@@ -3,8 +3,10 @@ package com.biblioteca.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.biblioteca.demo.model.libro;
+import org.springframework.stereotype.Service;
 
+import com.biblioteca.demo.model.libro;
+@Service
 public class serviceLibro {
     static List<libro> list = new ArrayList<>();
     static{
@@ -15,11 +17,7 @@ public class serviceLibro {
     public List<libro> getAllLibros() {
         return list;
     }
-    public void crearLibro(String titulo, String isbn, int idAutor) {
-        libro libro = new libro();
-        libro.setTitulo(titulo);
-        libro.setIsbn(isbn);
-        libro.setIdAutor(idAutor);
+    public void crearLibro(libro libro) {
         list.add(libro);
     }
 
@@ -28,11 +26,15 @@ public class serviceLibro {
         for (libro libro : list) {
             if (libro.getIsbn().equals(isbn)) {
                 librosBuscados.add(libro);
+            }else{
+                System.out.println("No se encontro el libro");
             }
         }
         for (libro libro : list) {
             if (libro.getTitulo().equals(titulo)) {
                 librosBuscados.add(libro);
+            }else{
+                System.out.println("No se encontro el libro");
             }
         }
         return librosBuscados;

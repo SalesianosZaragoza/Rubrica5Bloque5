@@ -3,8 +3,10 @@ package com.biblioteca.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.biblioteca.demo.model.autor;
+import org.springframework.stereotype.Service;
 
+import com.biblioteca.demo.model.autor;
+@Service
 public class serviceAutor {
     static List<autor> list = new ArrayList<>();
     static{
@@ -17,11 +19,7 @@ public class serviceAutor {
         return list;
     }
 
-    public void crearAutor(String nombre, String apellido, String fechaNac) {
-        autor autor = new autor();
-        autor.setNombre(nombre);
-        autor.setApellido(apellido);
-        autor.setFechaNacimiento(fechaNac);
+    public void crearAutor(autor autor) {
         list.add(autor);
     }
 
