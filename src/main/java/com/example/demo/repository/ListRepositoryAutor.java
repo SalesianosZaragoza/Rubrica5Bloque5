@@ -16,6 +16,7 @@ public class ListRepositoryAutor implements RepositoryAutor {
 
 	@Override
 	public void save(Autor autor) {
+		autor.setId(generarId());
 		listAutors.add(autor);
 	}
 
@@ -50,6 +51,28 @@ public class ListRepositoryAutor implements RepositoryAutor {
 		return autoresQueCoinciden;
 	}
 	
+	@Override
+	public Autor findAutorById(int id) {
+		// recorrer la lista, y si coincide el id con el id de la lista devolver el autor
+		for (Autor autor : listAutors) {
+			if(autor.getId() == id) {
+				return autor;
+			}
+		}
+		return null;
+	}
+
+	// generar id
+	@Override
+	public int generarId() {
+		int id = 0;
+		for (Autor autor : listAutors) {
+			if(autor.getId() > id) {
+				id = autor.getId();
+			}
+		}
+		return id + 1;
+	}
 
 	
 

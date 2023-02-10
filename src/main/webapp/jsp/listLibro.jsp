@@ -23,7 +23,7 @@
 		</td>
 		<td>
 			<form action="SearchAutor" method="post" align="center">
-				<input type="text" name="autor" placeholder="buscar por el autor">
+				<input type="integer" name="autor_id" placeholder="buscar por el autor">
 				<input type="submit" name="buscar" value="buscar">
 			</form>
 		</td>
@@ -40,7 +40,7 @@
 			<tr>
 				<td>${libro.titulo}</td>
 				<td>${libro.isbn}</td>
-				<td>${libro.autor}</td>
+				<td>${libro.autor_id}</td>
 			</tr>
 		</table>        
 	</c:forEach>

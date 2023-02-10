@@ -13,6 +13,7 @@
 <body>
 
 	<form:form action="addAutorForm" method="post" modelAttribute="autor">
+		<form:input path="id" type="hidden" name="id"/>
 		<span>Nombre:</span>
 		<form:input path="nombre" type="text" name="nombre"/>
 		<span>Fecha nacimiento:</span>

@@ -11,4 +11,6 @@ public interface RepositoryAutor {
 	List<Autor> findAllAutors();
 	List<Autor> findAutorByNombre(String nombre);
 	List<Autor> findAutorByFechaNacimiento(Date fecha);
+	Autor findAutorById(int id);
+	int generarId();
 }

@@ -20,9 +20,10 @@
 	<!--input  isbn-->
 	<span>ISBN:</span>
 	<form:input path="isbn" type="number" name="isbn"/>
-	<!--input autor-->
-	<span>Autor:</span>
-	<form:input path="autor" type="text" name="autor"/>
+	<span>Autor</span>
+	<form:select path="autor_id" name="autor_id" style="width: 100px">
+		<form:options items="${listAutor}" itemValue="id" itemLabel="nombre"/>
+	</form:select>
 	<input type="submit"/>
 </form:form>
 

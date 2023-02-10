@@ -46,5 +46,11 @@ public class serviceAutorPro implements ServiceAutor{
 		return listAutores;
 	}
 
+	@Override
+	public Autor findAutorById(int id) {
+		Autor autor = repository.findAutorById(id);
+		return autor;
+	}
+
 }
 

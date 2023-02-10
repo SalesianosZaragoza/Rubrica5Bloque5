@@ -11,6 +11,6 @@ public interface RepositoryLibro {
 	List<Libro> findAllLibros();
 	List<Libro> findLibroByTitulo(String titulo);
 	List<Libro> findLibroByIsbn(Integer isbn);
-	List<Libro> findLibroByAutor(String autor);
+	List<Libro> findLibroByAutorId(Integer autor_id);
 	
 }

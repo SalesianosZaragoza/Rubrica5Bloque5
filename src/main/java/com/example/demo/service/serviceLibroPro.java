@@ -47,8 +47,8 @@ public class serviceLibroPro implements ServiceLibro{
 	}
 
 	@Override
-	public List<Libro> findLibroByAutor(String autor) {
-		listLibros = repository.findLibroByAutor(autor);
+	public List<Libro> findLibroByAutor(Integer autor_id) {
+		listLibros = repository.findLibroByAutorId(autor_id);
 		return listLibros;
 	}
 

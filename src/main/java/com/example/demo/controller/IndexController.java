@@ -62,6 +62,7 @@ public class IndexController {
 	@GetMapping("/libro")
 	public ModelAndView libro() {
 		ModelAndView modelAndView = new ModelAndView("libro");
+		modelAndView.addObject("listAutor", serviceAutor.findAllAutors());
 		modelAndView.addObject("libro", this.libro);
 		return modelAndView;
 	}
@@ -118,9 +119,9 @@ public class IndexController {
 	}
 
 	@PostMapping("SearchAutor")
-	public ModelAndView searchLibroAutor(String autor) {
+	public ModelAndView searchLibroAutor(Integer autor_id) {
 		ModelAndView modelAndView = new ModelAndView("listLibro");
-		var listLibro = serviceLibro.findLibroByAutor(autor);
+		var listLibro = serviceLibro.findLibroByAutor(autor_id);
 		modelAndView.addObject("listLibro", listLibro);
 		return modelAndView;
 	}

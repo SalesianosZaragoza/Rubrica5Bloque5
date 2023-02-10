@@ -3,9 +3,11 @@ package com.example.demo.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Libro;
+import com.example.demo.service.ServiceAutor;
 
 
 @Repository("listLibro")
@@ -13,9 +15,13 @@ public class ListRepositoryLibro implements RepositoryLibro {
 
 	public List<Libro> list = new ArrayList<>();
 
+	@Autowired
+	ServiceAutor serviceAutor;
+
 	@Override
 	public void save(Libro libro) {
 		list.add(libro);
+		serviceAutor.findAutorById(libro.getAutor_id()).getLibros().add(libro);
 	}
 
 	@Override
@@ -46,15 +52,16 @@ public class ListRepositoryLibro implements RepositoryLibro {
 	}
 
 	@Override
-	public List<Libro> findLibroByAutor(String autor) {
+	public List<Libro> findLibroByAutorId(Integer autor_id) {
 		List<Libro> listaDeLibrosQueCoincidenConElAutor = new ArrayList<>();
 		for (Libro libro : list) {
-			if (libro.getAutor().equals(autor)) {
+			if (libro.getAutor_id() == autor_id) {
 				listaDeLibrosQueCoincidenConElAutor.add(libro);
 			}
 		}
 		return listaDeLibrosQueCoincidenConElAutor;
 	}
+
 
 
 }

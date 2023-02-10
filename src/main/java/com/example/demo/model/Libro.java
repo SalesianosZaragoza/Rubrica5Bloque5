@@ -7,16 +7,20 @@ public class Libro {
 
     private String titulo;
     private Integer isbn;
-    private String autor;
+    private int autor_id;
 
     
 
-    public String getAutor() {
-        return autor;
+    
+
+    
+
+    public int getAutor_id() {
+        return autor_id;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAutor_id(int autor_id) {
+        this.autor_id = autor_id;
     }
 
     public Integer getIsbn() {

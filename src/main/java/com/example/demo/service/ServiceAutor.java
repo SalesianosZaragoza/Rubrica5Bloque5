@@ -8,5 +8,6 @@ public interface ServiceAutor {
 	void guardarAutor(Autor autor);
 	List<Autor> findAutorByNombre(String nombre);
 	List<Autor> findAutorByFechaNacimiento(Date fecha);
+	Autor findAutorById(int id);
 
 }

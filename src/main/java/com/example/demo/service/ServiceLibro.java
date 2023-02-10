@@ -9,6 +9,6 @@ public interface ServiceLibro {
 	void guardarLibro(Libro libro);
 	List<Libro> findLibroByTitulo(String titulo);
 	List<Libro> findLibroByIsbn(Integer isbn);
-	List<Libro> findLibroByAutor(String autor);
+	List<Libro> findLibroByAutor(Integer autor_id);
 	
 }
