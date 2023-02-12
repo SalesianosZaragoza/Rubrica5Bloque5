@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-B5r5requestApplication<b5r5request>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.b5r5request.B5r5requestApplication",
+            "projectName": "b5r5request",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
